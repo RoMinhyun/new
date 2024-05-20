@@ -16,8 +16,8 @@
 		}
 	</script>
 	<script type="module">
-		import * as THREE from "three";
 		import { GLTFLoader } from "GLTFLoader";
+		import * as THREE from "three";
 
 		let scene = new THREE.Scene();
 		let renderer = new THREE.WebGLRenderer({
@@ -30,13 +30,10 @@
 		camera.position.set(0,0,5);
 
 		scene.background = new THREE.Color('white');
-		let light = new THREE.DirectionalLight(0xffff00, 10);
-		scene.add(light);
 		
 		let loader = new GLTFLoader();
-		loader.load('shiba/scene.gltf', function(gltf){
+		loader.load('./shiba/scene.gltf', function(gltf){
 			scene.add(gltf.scene);
-			renderer.render(scene.camera);
 
 			function animate(){
 				requestAnimationFrame(animate)
